@@ -28,6 +28,9 @@ public class Controller {
 
     @FXML
     public void initialize() {
+        Choicebox1.setValue("select");
+        Choicebox2.setValue("select");
+        Choicebox3.setValue("select");
 
         Choicebox1.getItems().addAll("class", "static", "public");
         Choicebox2.getItems().addAll("String[]", "int[]", "double[]");
