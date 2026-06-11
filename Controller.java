@@ -6,13 +6,13 @@ import javafx.scene.control.Label;
 public class Controller {
 
     @FXML
-    private ChoiceBox<?> Choicebox1;
+    private ChoiceBox<String> Choicebox1;
 
     @FXML
-    private ChoiceBox<?> Choicebox2;
+    private ChoiceBox<String> Choicebox2;
 
     @FXML
-    private ChoiceBox<?> Choicebox3;
+    private ChoiceBox<String> Choicebox3;
 
     @FXML
     private Button button_submit;
@@ -26,4 +26,30 @@ public class Controller {
     @FXML
     private Label timmer;
 
+    @FXML
+    public void initialize() {
+
+        Choicebox1.getItems().addAll("class", "static", "public");
+        Choicebox2.getItems().addAll("String[]", "int[]", "double[]");
+        Choicebox3.getItems().addAll("System", "Scanner", "Main");
+
+        Choicebox1.setValue("class");
+        Choicebox2.setValue("String[]");
+        Choicebox3.setValue("System");
+    }
+
+    @FXML
+    private void submitAnswer() {
+
+        boolean correct =
+                Choicebox1.getValue().equals("class") &&
+                Choicebox2.getValue().equals("String[]") &&
+                Choicebox3.getValue().equals("System");
+
+        if (correct) {
+            result.setText("Correct!");
+        } else {
+            result.setText("Wrong Answer!");
+        }
+    }
 }
