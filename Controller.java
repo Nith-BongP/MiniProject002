@@ -1,8 +1,12 @@
+
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.util.Duration;
 
 public class Controller {
 
@@ -27,6 +31,9 @@ public class Controller {
     @FXML
     private Label timmer;
 
+    private int timeSeconds = 120; 
+    private Timeline timeline;
+
     @FXML
      void initialize() {
         Choicebox1.setValue("Select");
@@ -36,7 +43,34 @@ public class Controller {
         Choicebox1.getItems().addAll("class", "static", "public");
         Choicebox2.getItems().addAll("String[]", "int[]", "double[]");
         Choicebox3.getItems().addAll("System", "Scanner", "Main");
+ 
+        startTimer();
+     }
+    private void startTimer() {
 
+        timeline = new Timeline(
+            new KeyFrame(Duration.seconds(1), event -> {
+
+            int minutes = timeSeconds / 60;
+            int seconds = timeSeconds % 60;
+
+            timmer.setText(String.format("%02d:%02d", minutes, seconds));
+
+            timeSeconds--;
+
+            if (timeSeconds < 0) {
+                timeline.stop();
+                timmer.setText("Time's up!");
+                autoSubmit(); // optional
+            }
+    }));
+
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+    }
+
+    private void autoSubmit() {
+        submitAnswer(null);
     }
 
     @FXML
@@ -62,5 +96,8 @@ public class Controller {
 
     result.setText("Your score is " + score.toString());
 
+    if (timeline != null) {
+            timeline.stop();
+        }
 }
 }
