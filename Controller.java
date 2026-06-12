@@ -28,18 +28,15 @@ public class Controller {
 
     @FXML
     public void initialize() {
-       // Choicebox1.setValue("Select");
-        //Choicebox2.setValue("Select");
-        //Choicebox3.setValue("Select");
+        Choicebox1.setValue("Select");
+        Choicebox2.setValue("Select");
+        Choicebox3.setValue("Select");
 
         Choicebox1.getItems().addAll("class", "static", "public");
         Choicebox2.getItems().addAll("String[]", "int[]", "double[]");
         Choicebox3.getItems().addAll("System", "Scanner", "Main");
 
-        Choicebox1.setValue("class");
-        Choicebox2.setValue("String[]");
-        Choicebox3.setValue("System");
-    }
+       
 
     @FXML
     private void submitAnswer() {
