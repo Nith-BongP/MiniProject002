@@ -1,3 +1,4 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -27,7 +28,7 @@ public class Controller {
     private Label timmer;
 
     @FXML
-    public void initialize() {
+     void initialize() {
         Choicebox1.setValue("Select");
         Choicebox2.setValue("Select");
         Choicebox3.setValue("Select");
@@ -36,20 +37,30 @@ public class Controller {
         Choicebox2.getItems().addAll("String[]", "int[]", "double[]");
         Choicebox3.getItems().addAll("System", "Scanner", "Main");
 
-       
+    }
 
     @FXML
-    private void submitAnswer() {
+     void on_submit(ActionEvent event) {
 
-        boolean correct =
-                Choicebox1.getValue().equals("class") &&
-                Choicebox2.getValue().equals("String[]") &&
-                Choicebox3.getValue().equals("System");
+    String answer_1 = Choicebox1.getValue();
+    String answer_2 = Choicebox2.getValue();
+    String answer_3 = Choicebox3.getValue();
 
-        if (correct) {
-            result.setText("Correct!");
-        } else {
-            result.setText("Wrong Answer!");
-        }
+    Integer score = 0;
+
+    if (answer_1 == "class") {
+        score += 1;
     }
+
+    if (answer_2 == "String") {
+        score += 1;
+    }
+
+    if (answer_3 == "System") {
+        score += 1;
+    }
+
+    result.setText("Your score is " + score.toString());
+
+}
 }
