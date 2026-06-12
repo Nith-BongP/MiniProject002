@@ -40,7 +40,7 @@ public class Controller {
     }
 
     @FXML
-     void on_submit(ActionEvent event) {
+     void submitAnswer(ActionEvent event) {
 
     String answer_1 = Choicebox1.getValue();
     String answer_2 = Choicebox2.getValue();
@@ -52,7 +52,7 @@ public class Controller {
         score += 1;
     }
 
-    if (answer_2 == "String") {
+    if (answer_2 == "String[]") {
         score += 1;
     }
 
