@@ -27,7 +27,7 @@
       <ChoiceBox fx:id="Choicebox2" layoutX="229.0" layoutY="178.0" prefHeight="25.0" prefWidth="56.0" />
       <ChoiceBox fx:id="Choicebox1" layoutX="128.0" layoutY="158.0" prefHeight="25.0" prefWidth="56.0" />
       <ChoiceBox fx:id="Choicebox3" layoutX="98.0" layoutY="203.0" prefHeight="25.0" prefWidth="56.0" />
-      <Button fx:id="button_submit" layoutX="184.0" layoutY="316.0" mnemonicParsing="false" text="Submit" />
+      <Button fx:id="button_submit" layoutX="184.0" layoutY="316.0" mnemonicParsing="false" onAction="#submitAnswer" text="Submit" />
       <Label layoutX="50.0" layoutY="99.0" text="Duration: 2mn00s" />
       <Label layoutX="50.0" layoutY="116.0" text="Timmer:" />
       <Label fx:id="timmer" layoutX="100.0" layoutY="116.0" prefHeight="17.0" prefWidth="94.0" text="Label" />
