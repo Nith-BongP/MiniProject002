@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 
 public class main extends Application {
 
-    public static void main(String[] args) {
+    public static void Main (String[] args) {
         launch();
     }
 
