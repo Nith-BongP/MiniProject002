@@ -12,9 +12,8 @@ public class Main extends Application {
 
     @Override   
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("View.fxml").openStream());
-        loader.setLocation(getClass().getResource("View.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("View.fxml"));
+        Parent root = loader.load();
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -22,6 +21,4 @@ public class Main extends Application {
         stage.getIcons().add(new javafx.scene.image.Image(getClass().getResourceAsStream("Logo-GTRSC-png.png")));
         stage.show();
     }
-
-    
 }
